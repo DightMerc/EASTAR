@@ -1,0 +1,582 @@
+@font-face {
+    font-family: 'AgencyFB Bold';
+    /* Имя шрифта */
+    src: url(../fonts/agencyb.TTF);
+    /* Путь к файлу со шрифтом */
+}
+
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.body {
+    min-height: 2220px;
+    overflow: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    min-height: 2630px;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===============ОРНАМЕНТЫ======================== */
+.orntop {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    z-index: 1;
+}
+
+.ornbottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.ornlong {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+
+}
+
+/* ================ОРНАМЕНТЫ-END=========================== */
+
+/* =============HEADER=================== */
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    background: black;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    height: 100px;
+    opacity: 0.7;
+    z-index: 3;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.menu li a {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: #ffffff;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.menu li a:after {
+    display: block;
+    content: "";
+    background-color: #ffffff;
+    height: 1.5px;
+    width: 0%;
+    left: 50%;
+    position: absolute;
+    -webkit-transition: width .3s ease-in-out;
+    -moz--transition: width .3s ease-in-out;
+    transition: width .3s ease-in-out;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.menu li a:hover:after,
+.menu li a:focus:after {
+    width: 100%;
+}
+
+.wrapper {
+    max-width: 1024px;
+    padding: 10px;
+    height: 80px;
+}
+
+.menuToggle {
+    color: #fff;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: none;
+    font-size: 30px;
+    width: 50%;
+    outline: none;
+}
+
+.dropbtn {
+    color: #ffffff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 360px;
+}
+
+.dropdown-link {
+    padding-top: 20px !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dropdown:hover .dropbtn {
+    background-color:
+}
+
+.lang {
+    padding-left: 100px;
+    border-left: 1.5px solid #ffffff;
+}
+
+.header-img {
+    width: 100%;
+    margin-top: 100px;
+    height: 960px;
+    background-image: url(../img/header-bg_02.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: -2;
+}
+
+.logo {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.header-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 930px;
+}
+
+.header-text h1 {
+    font-size: 120px;
+    font-family: 'AgencyFB Bold';
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    letter-spacing: 7px;
+    margin: 0;
+    padding-bottom: 25px;
+    width: 800px;
+}
+
+.header-text h3 {
+    padding-top: 25px;
+    font-size: 33px;
+    font-family: 'Jura', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 4px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+/* ====================SECTION========================= */
+
+.section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 1490px;
+    flex-direction: column;
+    padding-bottom: 200px;
+}
+.module-text {
+    width: 93%;
+}
+
+.module-marg {
+    margin-top: 200px;
+    margin-bottom: 250px;
+}
+
+.module {
+    color: #ffffff;
+    border-radius: 22px;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border-radius: 22px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 62.5%;
+    min-height: 970px;
+}
+
+.module h2,
+.module p {
+    margin: 0;
+
+}
+
+.module h2 {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 72px;
+    padding-top: 20px;
+}
+
+.module p {
+    font-family: 'Jura', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    padding: 20px;
+    text-indent: 1.5em;
+}
+
+.picture {
+    border-radius: 4%;
+    width: 100%;
+}
+
+.explore {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: 'Jura', sans-serif;
+    font-weight: 700;
+    padding: 20px;
+    border: 5px solid #3a3e4d;
+    border-radius: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 34px;
+    background: #3a3e4d;
+    transition: all 0.5s;
+    box-sizing: border-box;
+}
+
+.picture-wrap {
+    width: 90%;
+    margin: auto;
+    padding-bottom: 30px;
+}
+
+.module-height {
+    min-height: 750px;
+}
+
+.btn_explore {
+    text-align: center;
+    padding-top: 52px;
+    box-sizing: border-box;
+    opacity: 1;
+    padding-bottom: 60px;
+}
+
+.explore:hover {
+    border: 5px solid #436f87;
+    background: #436f87;
+}
+
+/* ==============FOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOTER================== */
+.footer {
+    height: 202px;
+    background: black;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    margin-top: 10%;
+}
+
+.footer-text {
+    width: 62.5%;
+}
+
+.footer p {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: 'Jura', sans-serif;
+    margin: 0;
+    padding-top: 95px;
+}
+
+
+
+/* =====================MEDIA-QUERY============================ */
+@media only screen and (max-width: 1080px) {
+    .module-text h2 {
+        font-size: 52px;
+    }
+
+    .module p {
+        font-size: 22px;
+    }
+}
+
+
+@media only screen and (max-width: 900px) {
+    nav {
+        opacity: 0.9;
+    }
+
+    .menuToggle {
+        display: block;
+        padding-top: 20px;
+    }
+
+    .lang {
+        padding: 0;
+        border-top: 1px solid #ffffff;
+        padding-top: 3px;
+        width: 90%;
+        border-left: 0px;
+    }
+
+
+    .menu {
+        display: none;
+        position: absolute;
+        background: black;
+        width: 100%;
+        margin-left: -10px;
+        padding-left: 10px;
+        height: 100vh;
+    }
+
+    .header-text h1 {
+        font-size: 90px;
+        width: 550px;
+    }
+
+    .header-text h3 {
+        font-size: 20px;
+        padding-right: 0;
+    }
+
+    .logo a img {
+        width: 70%;
+    }
+
+    .module-text h2 {
+        font-size: 52px;
+    }
+
+    .module {
+        width: 80%;
+    }
+}
+
+/* mobile wide/smaller tablets
+ ---------------------------------------------------------------------- */
+
+@media only screen and (max-width: 760px) {
+    .module {
+        width: 90%;
+    }
+
+    .header-text h1 {
+        font-size: 70px;
+        width: 450px;
+    }
+
+    .module p {
+        font-size: 20px;
+    }
+
+    .orntop {
+        width: 90%;
+    }
+
+    .ornbottom {
+        width: 85%;
+    }
+
+    .module-text h2 {
+        font-size: 42px;
+    }
+
+    .btn_explore {
+        padding-bottom: 70px;
+    }
+
+    .footer-text {
+        width: 82.5%;
+    }
+
+    .btn_explore {
+        padding: 25px;
+    }
+
+    .module-marg {
+        margin-bottom: 100px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .btn_explore {
+        padding: 25px;
+    }
+    .ornbottom {
+        width: 100%;
+    }
+    .explore {
+        font-size: 19px;
+        padding: 15px;
+    }
+
+    .module-marg {
+        margin-bottom: 80px;
+    }
+
+    .footer {
+        height: 100px;
+    }
+
+    .footer p {
+        padding-top: 40px;
+    }
+
+    .footer p {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .ornbottom {
+        display: none;
+    }
+}
+/* mobile narrow
+   -------------------------------------------------------------------------- */
+
+@media only screen and (max-width: 480px) {
+    .header-text h1 {
+        font-size: 50px;
+        width: 290px;
+    }
+    .header-text h3 {
+        text-align: center;
+        padding-left: 0;
+    }
+    nav {
+        height: 60px !important;
+    }
+
+    .wrapper {
+        height: 60px !important;
+    }
+
+    .menuToggle {
+        padding: 0;
+        font-size: 25px;
+        padding-left: 10px;
+        padding-top: 5px;
+    }
+    .section {
+        padding-bottom: 0;
+        min-height: 1200px;
+    }
+    .module p {
+        font-size: 18px;
+    }
+    .body {
+        min-height: 2000px;
+    }
+    .logo a img {
+        width: 50%;
+    }
+    .header-text {
+        height: 670px;
+    }
+    .header-img {
+        margin-top: 60px;
+        height: 700px;
+        background-position: unset;
+    }
+    .footer {
+        margin-top: 0;
+    }
+    .footer p {
+        font-size: 14px;
+    }
+    body {
+        min-height: 2300px;
+    }
+    .explore {
+        font-size: 15px;
+        padding: 10px;
+    }
+    .module-marg {
+        margin-top: 100px;
+        margin-bottom: 0px;
+    }
+
+    .module-text h2 {
+        font-size: 32px;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .module p {
+        font-size: 18px;
+    }
+}
