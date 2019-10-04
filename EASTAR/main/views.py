@@ -1,10 +1,15 @@
 from django.shortcuts import render
+from .models import ContentText, PagePhoto, MainPagePhoto, TechnologiesText, TechnologiesMoreText
 
 # Create your views here.
 
 
 def Base(request):
-    return render(request, 'main/index.html', {})
+    text = ContentText.objects.get(pk=1).text.replace("\r", "").split("\n")
+    return render(request, 'main/index.html', {
+        "text": text,
+        "technologies": TechnologiesText.objects.all()
+        })
 
 
 def About(request):
@@ -20,8 +25,17 @@ def Values(request):
 
 
 def Technology(request):
-    return render(request, 'main/technology.html', {})
+    return render(request, 'main/technology.html', {
+        "technologies": TechnologiesText.objects.all()
+    })
 
 
 def Technologies(request, pk):
-    return render(request, f'main/technology {pk}.html', {})
+    text = TechnologiesText.objects.get(pk=pk).text.replace("\r", "").split("\n")
+    moreText = TechnologiesMoreText.objects.get(pk=pk).text.replace("\r", "").split("\n")
+    return render(request, f'main/technology.html', {
+        "text": text,
+        "moreText": moreText,
+        "technologies": TechnologiesText.objects.all()
+        
+        })

@@ -35,9 +35,9 @@
             <div class="dropdown">
               <a class="dropbtn" href="/technology">Технологии</a>
               <div class="dropdown-content">
-                <a class="dropdown-link" href="/technology/1">Технология1 Lorem ipsum dolor sit amet.</a>
-                <a class="dropdown-link" href="/technology/2">Технология2 Lorem ipsum dolor sit amet.</a>
-                <a class="dropdown-link" href="/technology/3">Технология3 Lorem ipsum dolor sit amet.</a>
+                {% for technology in technologies %}
+                  <a class="dropdown-link" href="/technology/{{ technology.id }}">{{ technology.title }}</a>
+                {% endfor %}
               </div>
             </div>
           </li>
@@ -70,17 +70,14 @@
       <div class="module-text">
         <h2 class="wow slideInLeft">Заголовок</h2>
         <p class="wow slideInRight">
-          В данном заголовке будет представлена обобщенная краткая
-          информация о проекте, его целях, идеях и возможных достижениях.
-          Далее следует лишь бессвязный поток слов для наглядности. :)
+          {% for a in text %}
+          {% if a %}
+            <p>{{a}}</p>
+          {% endif %}
+          {% endfor %}
+
         </p>
-        <p class="wow slideInLeft">Разнообразный и богатый опыт реализация намеченных плановых
-          заданий требуют определения и уточнения новых предложений.
-          Повседневная практика показывает, что реализация намеченных
-          плановых заданий позволяет выполнять важные задания по разработке
-          соответствующий условий активизации. Идейные соображения высшего
-          порядка, а также укрепление и развитие структуры требуют от нас
-          анализа новых предложений.</p>
+        
         <div class="picture-wrap">
           <img src="{% static 'img/picture_03.jpg' %}" alt="" class="picture wow slideInRight">
         </div>
