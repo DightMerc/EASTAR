@@ -1,5 +1,5 @@
 from django.urls import path, re_path, include
-from .views import Base, About, Values, Technology, Contacts, Technologies
+from .views import Base, About, Values, Technology, Contacts, TechnologiesView
 # from .views import temp_order, getTempOrder, removeProduct, changeAmount, CartShow
 # from .views import discounts_view, vacancy_view, blog_view, blog_view_detailed, contact_view, about_view, newOrderView, AdminPanelView, AdminPanelViewSingle, orderCountView, getOrderView,url_redirect, toggleOrder_view, closeOrder_view, archievedordersView, AdminPanelViewArchievedSingle, setOrderState, getOrderState
 
@@ -8,7 +8,7 @@ urlpatterns = [
     path('about/', About, name='about_view'),
     path('values/', Values, name='values_view'),
     path('technology/', Technology, name='tech_view'),
-    path('technology/<int:pk>/', Technologies, name='techs_view'),
+    path('technology/<int:pk>/', TechnologiesView, name='techs_view'),
     path('contacts/', Contacts, name='contact_view'),
 
 

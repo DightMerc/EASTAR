@@ -68,7 +68,15 @@
                 <h2 class="wow slideInLeft">Заголовок</h2>
                 {% for a in text %}
                 {% if a %}
-                    <p class="wow slideInRight">{{a}}</p>
+                  {% if a|FindPhoto %}
+                    <p>{{a|ReplacePhoto}}</p>
+                    <div class="picture-wrap">
+                      <img src="{% static '{{text.}}' %}" alt="" class="picture wow slideInRight">
+                    </div>
+                  {% else %}
+                    <p>{{a}}</p>
+                  {% endif %}
+
                 {% endif %}
                 {% endfor %}
                 <div class="picture-wrap">

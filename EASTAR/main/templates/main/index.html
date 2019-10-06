@@ -1,4 +1,5 @@
 {% load static %}
+{% load extra %}
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -36,7 +37,7 @@
               <a class="dropbtn" href="/technology">Технологии</a>
               <div class="dropdown-content">
                 {% for technology in technologies %}
-                  <a class="dropdown-link" href="/technology/{{ technology.id }}">{{ technology.title }}</a>
+                  <a class="dropdown-link" href="/technology/{{ technology.id }}">{{ technology.titleRU }}</a>
                 {% endfor %}
               </div>
             </div>
@@ -68,11 +69,19 @@
   <section class="section">
     <div class="module">
       <div class="module-text">
-        <h2 class="wow slideInLeft">Заголовок</h2>
+        <h2 class="wow slideInLeft">{{ header }}</h2>
         <p class="wow slideInRight">
           {% for a in text %}
           {% if a %}
-            <p>{{a}}</p>
+            {% if a|FindPhoto %}
+              <p>{{a|ReplacePhoto}}</p>
+              <div class="picture-wrap">
+                <img src="{% static '{{text.}}' %}" alt="" class="picture wow slideInRight">
+              </div>
+            {% else %}
+              <p>{{a}}</p>
+            {% endif %}
+
           {% endif %}
           {% endfor %}
 
@@ -83,7 +92,7 @@
         </div>
       </div>
     </div>
-    <a href="#" class="explore">Узнать больше</a>
+    <a href="/about" class="explore">Узнать больше</a>
   </section>
   <!-- ============SECTION-END============== -->
 

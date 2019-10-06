@@ -1,14 +1,14 @@
 from django.shortcuts import render
-from .models import ContentText, PagePhoto, MainPagePhoto, TechnologiesText, TechnologiesMoreText
+from .models import ContentText, PagePhoto, MainPagePhoto, Technologies
 
 # Create your views here.
 
 
 def Base(request):
-    text = ContentText.objects.get(pk=1).text.replace("\r", "").split("\n")
     return render(request, 'main/index.html', {
-        "text": text,
-        "technologies": TechnologiesText.objects.all()
+        "text": ContentText.objects.get(pk=1).textRU.replace("\r", "").split("\n"),
+        "header": ContentText.objects.get(pk=1).titleRU,
+        "technologies": Technologies.objects.all()
         })
 
 
@@ -26,16 +26,14 @@ def Values(request):
 
 def Technology(request):
     return render(request, 'main/technology.html', {
-        "technologies": TechnologiesText.objects.all()
+        "technologies": Technologies.objects.all(),
     })
 
 
-def Technologies(request, pk):
-    text = TechnologiesText.objects.get(pk=pk).text.replace("\r", "").split("\n")
-    moreText = TechnologiesMoreText.objects.get(pk=pk).text.replace("\r", "").split("\n")
+def TechnologiesView(request, pk):
+    text = Technologies.objects.get(pk=pk).textRU.replace("\r", "").split("\n")
     return render(request, f'main/technology.html', {
         "text": text,
-        "moreText": moreText,
-        "technologies": TechnologiesText.objects.all()
-        
+        "technologies": Technologies.objects.all(),
+        "moreText": Technologies.objects.get(pk=pk).textAddRU.replace("\r", "").split("\n"),
         })
