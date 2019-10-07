@@ -1,4 +1,5 @@
 {% load static %}
+{% load extra %}
 
 <!DOCTYPE html>
 <html lang="en"> 
@@ -65,7 +66,7 @@
     <section class="section">
         <div class="module module-marg">
             <div class="module-text">
-                <h2 class="wow slideInLeft">Заголовок</h2>
+                <h2 class="wow slideInLeft">{{ header }}</h2>
                 {% for a in text %}
                 {% if a %}
                   {% if a|FindPhoto %}
@@ -80,6 +81,7 @@
                 {% endif %}
                 {% endfor %}
                 <div class="picture-wrap">
+                    {{ photoes.0.photo }}
                     <img src="{% static 'img/picture_03.jpg' %}" alt="" class="picture wow slideInRight">
                 </div>
                 

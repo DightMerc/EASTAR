@@ -35,5 +35,7 @@ def TechnologiesView(request, pk):
     return render(request, f'main/technology.html', {
         "text": text,
         "technologies": Technologies.objects.all(),
+        "header": Technologies.objects.get(pk=pk).titleRU,
         "moreText": Technologies.objects.get(pk=pk).textAddRU.replace("\r", "").split("\n"),
+        "photoes": Technologies.objects.get(pk=pk).photo.all()
         })
